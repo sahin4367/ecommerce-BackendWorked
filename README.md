@@ -1,35 +1,62 @@
-## Run Locally
+# 🛒 E-commerce Backend API
 
-Clone the project
+This is a backend API built for an e-commerce platform using **Node.js**, **Express.js**, and **MongoDB**. It supports product creation, listing, filtering, and more.
 
-```bash
-  git clone https://dredsoft-labs-admin@bitbucket.org/dredsoft-labs/ecommerce.git
-```
+---
 
-Go to the project directory
+## 🚀 Tech Stack
 
-```bash
-  cd ecommerce
-```
+- Node.js  
+- Express.js  
+- MongoDB  
+- Mongoose  
+- Cloudinary (for image upload)
 
-Install dependencies
+---
 
-```bash
-  npm install
+## 📦 Installation (Run Locally)
 
-  or 
-
-  npm install react-material-ui-carousel --save --legacy-peer-deps
-```
-
-Start the server
+### 1. Clone the Repository
 
 ```bash
-  npm start
-```
+git clone https://dredsoft-labs-admin@bitbucket.org/dredsoft-labs/ecommerce.git
 
-The server should now be running. You can access the application by opening a web browser and entering the following URL:
 
-```bash
-  http://localhost:3000
-```
+cd ecommerce
+npm install
+npm install react-material-ui-carousel --save --legacy-peer-deps
+
+PORT=4000
+MONGO_URI=<your-mongo-uri>
+CLOUDINARY_NAME=<your-cloudinary-name>
+CLOUDINARY_API_KEY=<your-cloudinary-api-key>
+CLOUDINARY_SECRET=<your-cloudinary-secret>
+
+npm start
+
+Visit the application in your browser:
+http://localhost:3000
+
+
+Get All Products
+GET /api/v1/products
+
+Get Product by ID
+GET /api/v1/product/:id
+
+Filter Products by Category
+GET /api/v1/products?category=Apparel
+
+Create a New Product (Admin Only)
+POST /api/v1/admin/product/new
+
+{
+  "name": "Test Product",
+  "price": 59.99,
+  "description": "Nice one",
+  "category": "Apparel",
+  "brandname": "Nike",
+  "logo": "<base64 image>",
+  "images": ["<base64 image>"],
+  "specifications": ["{\"key\":\"Size\",\"value\":\"M\"}"]
+}
